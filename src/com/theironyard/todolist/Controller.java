@@ -3,6 +3,7 @@ package com.theironyard.todolist;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -13,7 +14,10 @@ public class Controller {
     private List<TodoItem> todoItems;
 
     @FXML
-    private ListView todoListView;
+    private ListView<TodoItem> todoListView;
+
+    @FXML
+    private TextArea itemDetailsTextArea;
 
     public void initialize() {
       TodoItem item1 = new TodoItem("Mail birthday card", "Buy a 30th birthday card for John",
@@ -40,7 +44,13 @@ public class Controller {
 
     @FXML
     public void handleClickListView() {
-        TodoItem item = (TodoItem) todoListView.getSelectionModel().getSelectedItem();
-        System.out.println("The selected item is: " + item);
+        TodoItem item = todoListView.getSelectionModel().getSelectedItem();
+//        System.out.println("The selected item is: " + item);
+        StringBuilder sb = new StringBuilder(item.getDetails());
+        sb.append("\n\n\n\n");
+        sb.append("Due: ");
+        sb.append(item.getDeadline().toString());
+        itemDetailsTextArea.setText(sb.toString());
+
     }
 }
