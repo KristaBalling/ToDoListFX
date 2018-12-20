@@ -1,5 +1,6 @@
 package com.theironyard.todolist;
 
+import com.theironyard.todolist.datamodel.TodoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;

@@ -1,4 +1,4 @@
-package com.theironyard.todolist;
+package com.theironyard.todolist.datamodel;
 
 import java.time.LocalDate;
 
