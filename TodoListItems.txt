@@ -3,3 +3,5 @@ Doctor's appointment	SEE DR.SMITH AT 123 MAIN ST	23-01-2019
 Finish design proposal for client	I PROMISED MIKE I'D EMAIL WEBSITE MOCKUPS BY FRIDAY 22ND APRIL	22-04-2019
 Pickup Doug at the train station	DOUG'S ARRIVING MARCH 23 ON THE 5:00 TRAIN	23-03-2018
 Pickup dry cleaning	CLOTHES SHOULD BE READY BY WEDNESDAY	20-12-2018
+dentist appt	remember to floss	18-01-2019
+call husband back	about that thing	30-01-2019
