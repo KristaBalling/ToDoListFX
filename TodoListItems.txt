@@ -5,3 +5,4 @@ Pickup Doug at the train station	DOUG'S ARRIVING MARCH 23 ON THE 5:00 TRAIN	23-0
 Pickup dry cleaning	CLOTHES SHOULD BE READY BY WEDNESDAY	20-12-2018
 dentist appt	remember to floss	18-01-2019
 call husband back	about that thing	30-01-2019
+red test	this is to test the current date color fill option	03-01-2019
