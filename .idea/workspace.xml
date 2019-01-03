@@ -3,16 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoListItems.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TodoListItems.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ToDoList/com/theironyard/todolist/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDoList/com/theironyard/todolist/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ToDoList/com/theironyard/todolist/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDoList/com/theironyard/todolist/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ToDoList/com/theironyard/todolist/datamodel/TodoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDoList/com/theironyard/todolist/datamodel/TodoData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ToDoList/com/theironyard/todolist/mainwindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDoList/com/theironyard/todolist/mainwindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/theironyard/todolist/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/theironyard/todolist/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/theironyard/todolist/DialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/theironyard/todolist/DialogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/theironyard/todolist/datamodel/TodoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/theironyard/todolist/datamodel/TodoData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/theironyard/todolist/mainwindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/theironyard/todolist/mainwindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/theironyard/todolist/todoItemDialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/theironyard/todolist/todoItemDialog.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -295,7 +285,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="SearchEverywhereHistoryKey" value="ter&#9;ACTION&#9;ActivateTerminalToolWindow&#10;term&#9;ACTION&#9;ActivateTerminalToolWindow&#10;terminal&#9;ACTION&#9;ActivateTerminalToolWindow" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546468919199" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546469677589" />
     <property name="dynamic.classpath" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -404,7 +394,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info id="Image Layers" />
@@ -413,10 +402,10 @@
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.20895523" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
-      <window_info anchor="bottom" id="Terminal" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286334" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3286334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
