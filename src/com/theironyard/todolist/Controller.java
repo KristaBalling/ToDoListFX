@@ -4,6 +4,7 @@ import com.theironyard.todolist.datamodel.TodoData;
 import com.theironyard.todolist.datamodel.TodoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import javafx.util.Callback;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,6 +43,9 @@ public class Controller {
     @FXML
     private ContextMenu listContextMenu;
 
+    @FXML
+    private ToggleButton filterToggleButton;
+
     public void initialize() {
 
         listContextMenu = new ContextMenu();
@@ -57,7 +62,7 @@ public class Controller {
         todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {
             @Override
             public void changed(ObservableValue<? extends TodoItem> observable, TodoItem oldValue, TodoItem newValue) {
-                if(newValue != null) {
+                if (newValue != null) {
                     TodoItem item = todoListView.getSelectionModel().getSelectedItem();
                     itemDetailsTextArea.setText(item.getDetails());
                     DateTimeFormatter df = DateTimeFormatter.ofPattern("MMMM d, yyyy");
@@ -66,7 +71,16 @@ public class Controller {
             }
         });
 
-        todoListView.setItems(TodoData.getInstance().getTodoItems());
+        SortedList<TodoItem> sortedList = new SortedList<TodoItem>(TodoData.getInstance().getTodoItems(),
+                new Comparator<TodoItem>() {
+                    @Override
+                    public int compare(TodoItem o1, TodoItem o2) {
+                        return o1.getDeadline().compareTo(o2.getDeadline());
+                    }
+                });
+
+//        todoListView.setItems(TodoData.getInstance().getTodoItems());
+        todoListView.setItems(sortedList);
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
 
@@ -79,13 +93,13 @@ public class Controller {
                     @Override
                     protected void updateItem(TodoItem item, boolean empty) {
                         super.updateItem(item, empty);
-                        if(empty) {
+                        if (empty) {
                             setText(null);
-                        }else {
+                        } else {
                             setText(item.getShortDescription());
-                            if(item.getDeadline().isBefore(LocalDate.now().plusDays(1))) {
+                            if (item.getDeadline().isBefore(LocalDate.now().plusDays(1))) {
                                 setTextFill(Color.RED);
-                            } else if(item.getDeadline().equals(LocalDate.now().plusDays(1))) {
+                            } else if (item.getDeadline().equals(LocalDate.now().plusDays(1))) {
                                 setTextFill(Color.GREEN);
                             }
                         }
@@ -114,10 +128,10 @@ public class Controller {
         dialog.setHeaderText("Use this dialog to create a new todo item");
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("todoItemDialog.fxml"));
-        try{
+        try {
             dialog.getDialogPane().setContent(fxmlLoader.load());
 
-        }catch(IOException e) {
+        } catch (IOException e) {
             System.out.println("Couldn't load the dialog");
             e.printStackTrace();
             return;
@@ -127,13 +141,13 @@ public class Controller {
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
 
         Optional<ButtonType> result = dialog.showAndWait();
-        if(result.isPresent() && result.get() == ButtonType.OK) {
+        if (result.isPresent() && result.get() == ButtonType.OK) {
             DialogController controller = fxmlLoader.getController();
             TodoItem newItem = controller.processResults();
 //            todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
             todoListView.getSelectionModel().select(newItem);
             System.out.println("OK pressed");
-        }else {
+        } else {
             System.out.println("Cancel pressed");
         }
 
@@ -142,8 +156,8 @@ public class Controller {
 
     public void handleKeyPressed(KeyEvent keyEvent) {
         TodoItem selectedItem = todoListView.getSelectionModel().getSelectedItem();
-        if(selectedItem != null) {
-            if(keyEvent.getCode().equals(KeyCode.DELETE)) {
+        if (selectedItem != null) {
+            if (keyEvent.getCode().equals(KeyCode.DELETE)) {
                 deleteItem(selectedItem);
 
             }
@@ -164,8 +178,15 @@ public class Controller {
         alert.setContentText("Are you sure? Click OK to confirm, or cancel to Back Out.");
         Optional<ButtonType> result = alert.showAndWait();
 
-        if(result.isPresent() && (result.get() == ButtonType.OK)) {
+        if (result.isPresent() && (result.get() == ButtonType.OK)) {
             TodoData.getInstance().deleteTodoItem(item);
+        }
+    }
+
+    public void handleFilterButton() {
+        if (filterToggleButton.isSelected()) {
+
+        } else {
         }
     }
 }
