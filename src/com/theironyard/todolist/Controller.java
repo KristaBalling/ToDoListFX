@@ -4,6 +4,7 @@ import com.theironyard.todolist.datamodel.TodoData;
 import com.theironyard.todolist.datamodel.TodoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,6 +23,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class Controller {
 
@@ -45,6 +47,9 @@ public class Controller {
 
     @FXML
     private ToggleButton filterToggleButton;
+
+    @FXML
+    private FilteredList<TodoItem> filteredList;
 
     public void initialize() {
 
@@ -71,7 +76,15 @@ public class Controller {
             }
         });
 
-        SortedList<TodoItem> sortedList = new SortedList<TodoItem>(TodoData.getInstance().getTodoItems(),
+        filteredList = new FilteredList<TodoItem>(TodoData.getInstance().getTodoItems(),
+                new Predicate<TodoItem>() {
+                    @Override
+                    public boolean test(TodoItem todoItem) {
+                        return true;
+                    }
+                });
+
+        SortedList<TodoItem> sortedList = new SortedList<TodoItem>(filteredList,
                 new Comparator<TodoItem>() {
                     @Override
                     public int compare(TodoItem o1, TodoItem o2) {
@@ -185,8 +198,20 @@ public class Controller {
 
     public void handleFilterButton() {
         if (filterToggleButton.isSelected()) {
+            filteredList.setPredicate(new Predicate<TodoItem>() {
+                @Override
+                public boolean test(TodoItem todoItem) {
+                    return (todoItem.getDeadline().equals(LocalDate.now()));
+                }
+            });
 
         } else {
+            filteredList.setPredicate(new Predicate<TodoItem>() {
+                @Override
+                public boolean test(TodoItem todoItem) {
+                    return true;
+                }
+            });
         }
     }
 }
